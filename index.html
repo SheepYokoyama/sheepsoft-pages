@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>聴くtoノート — 録音するだけ、議事録まで。音声は端末の外に出ません</title>
+<meta name="description" content="録音した会話をiPhoneの中で文字にして、AIが議事録まで仕上げるボイスレコーダーアプリ。文字起こしはすべて端末内で完結、音声は外に送信されません。">
+<link rel="icon" href="images/icon.png">
+<style>
+  :root {
+    --ink: #23293a;
+    --muted: #626b80;
+    --accent: #45549e;
+    --accent-deep: #38437e;
+    --accent-soft: #e9ecf8;
+    --paper: #fafbfd;
+    --card: #ffffff;
+    --line: #dfe3ee;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", "Meiryo", sans-serif;
+    color: var(--ink); background: var(--paper); line-height: 1.9;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header { padding: 64px 0 40px; background: linear-gradient(180deg, var(--accent-soft), var(--paper)); }
+  .hero { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .hero-text { flex: 1 1 340px; }
+  .app-icon { width: 76px; height: 76px; border-radius: 18px; box-shadow: 0 4px 14px rgba(69,84,158,.25); }
+  .app-name { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: .06em; margin: 14px 0 6px; }
+  h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.45; font-weight: 800; }
+  .lede { color: var(--muted); margin-top: 14px; font-size: 15.5px; }
+  .badge-free {
+    display: inline-block; margin-top: 18px; background: var(--accent); color: #fff;
+    padding: 6px 18px; border-radius: 99px; font-size: 13.5px; font-weight: 700;
+  }
+  .badge-note { display: block; font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .hero-img { flex: 0 1 260px; text-align: center; }
+  .hero-img img { width: 100%; max-width: 260px; border-radius: 22px; box-shadow: 0 10px 30px rgba(35,41,58,.18); }
+
+  section { padding: 48px 0; }
+  h2 { font-size: 22px; margin-bottom: 8px; text-align: center; }
+  .sub { color: var(--muted); text-align: center; font-size: 14px; margin-bottom: 32px; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .feature .em { font-size: 26px; }
+  .feature h3 { font-size: 16px; margin: 8px 0 6px; }
+  .feature p { font-size: 13.5px; color: var(--muted); }
+
+  .privacy { background: var(--accent-deep); color: #fff; border-radius: 18px; padding: 36px 28px; text-align: center; }
+  .privacy h2 { color: #fff; }
+  .privacy p { max-width: 620px; margin: 0 auto; font-size: 14.5px; opacity: .94; }
+  .privacy .big { font-size: 18px; font-weight: 700; margin-bottom: 10px; opacity: 1; }
+
+  .shots { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .shots figure { flex: 0 1 240px; text-align: center; }
+  .shots img { width: 100%; border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 6px 18px rgba(35,41,58,.12); }
+  .shots figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+  .mascot-note { display: flex; gap: 18px; align-items: center; max-width: 640px; margin: 0 auto; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; }
+  .mascot-note img { width: 84px; flex: none; }
+  .mascot-note p { font-size: 14px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 48px; font-size: 13.5px; color: var(--muted); }
+  footer .links { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 12px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) { .hero { text-align: center; justify-content: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hero">
+    <div class="hero-text">
+      <img class="app-icon" src="images/icon.png" alt="聴くtoノートのアイコン">
+      <div class="app-name">聴くtoノート</div>
+      <h1>録音するだけ、<br>議事録まで。</h1>
+      <p class="lede">会議も打ち合わせも、ボタンひとつで録音。文字起こしはぜんぶ iPhone の中で完結するから、大事な話も安心です。話者分離つきの文字起こしから、AIがきれいな議事録に仕上げます。</p>
+      <span class="badge-free">いまは全機能を無料開放中</span>
+      <span class="badge-note">App Store で近日公開予定（正式版では一部機能が有料プランになる予定です）</span>
+    </div>
+    <div class="hero-img">
+      <img src="images/shot_recording.png" alt="録音画面のスクリーンショット">
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>できること</h2>
+    <p class="sub">録音する → 文字起こし → AI議事録・共有。この一本道です</p>
+    <div class="features">
+      <div class="feature"><span class="em">🎙️</span><h3>止まらない録音</h3><p>画面ロック中も、ほかのアプリを見ていても録音は続きます。着信で中断しても、通話が終われば自動で続きから再開します。</p></div>
+      <div class="feature"><span class="em">📝</span><h3>端末内で文字起こし</h3><p>日本語に強い音声認識モデルを搭載。圏外でも機内モードでも使えます。だれが話したかを見分ける話者分離にも対応。</p></div>
+      <div class="feature"><span class="em">✨</span><h3>AIがきれいな議事録に</h3><p>要約・決定事項・やることまで自動で整理。会議・講義・インタビューなど、用途に合わせたテンプレートを選べます。</p></div>
+      <div class="feature"><span class="em">📚</span><h3>単語帳で誤変換に強く</h3><p>人名・社名・専門用語を登録すると、その言葉で正しく書かれるように。AIがお仕事に合わせた用語集をまとめて作ることもできます。</p></div>
+      <div class="feature"><span class="em">📤</span><h3>そのまま共有</h3><p>テキスト・PDF・音声ファイルで書き出し。声を変えて共有できる「声の匿名化」も。</p></div>
+      <div class="feature"><span class="em">🔑</span><h3>AIはあなたのキーで</h3><p>AI議事録はお手持ちのAPIキー（Gemini / Claude / ChatGPT）で動くBYOK方式。Geminiのキーは無料で取得できます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="privacy">
+      <p class="big">🔒 音声は、iPhoneの外に出ません</p>
+      <h2>プライバシー第一の設計</h2>
+      <p>文字起こしはすべて端末の中で行われ、録音データがクラウドへアップロードされることはありません。当社はサーバーを持たず、アナリティクスも広告SDKも使っていません。社外秘の会議も、デリケートな相談も、安心して記録できます。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>画面イメージ</h2>
+    <p class="sub">やわらかくて、迷わない画面を心がけました</p>
+    <div class="shots">
+      <figure><img src="images/shot_transcript.png" alt="話者分離つき文字起こしの画面"><figcaption>話者ごとに分かれた文字起こし</figcaption></figure>
+      <figure><img src="images/shot_minutes.png" alt="AI議事録の画面"><figcaption>決定事項・やることまで自動整理</figcaption></figure>
+      <figure><img src="images/shot_recording.png" alt="録音画面"><figcaption>録音はボタンひとつ</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="mascot-note">
+      <img src="images/mascot_ol.png" alt="マスコットの聴鳥さん">
+      <p>「録音したつもりが、切れてた…」そんな悲しい事故を防ぐ工夫を、アプリのすみずみに入れました。使い方に迷ったら、アプリ内の「よくある質問」をのぞいてみてください。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="support">サポート・よくある質問</a>
+      <a href="privacy">プライバシーポリシー</a>
+    </div>
+    <div>© 2026 SheepSoft Co., Ltd.</div>
+  </div>
+</footer>
+
+</body>
+</html>
