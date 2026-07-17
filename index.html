@@ -53,6 +53,10 @@
   .privacy h2 { color: #fff; }
   .privacy p { max-width: 620px; margin: 0 auto; font-size: 14.5px; opacity: .94; }
   .privacy .big { font-size: 18px; font-weight: 700; margin-bottom: 10px; opacity: 1; }
+  .privacy .points { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; max-width: 680px; margin: 22px auto 0; }
+  .privacy .point { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 14px 12px; }
+  .privacy .point .t { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .privacy .point .d { font-size: 12.5px; opacity: .85; line-height: 1.7; }
 
   .shots { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
   .shots figure { flex: 0 1 240px; text-align: center; }
@@ -108,8 +112,13 @@
   <div class="wrap">
     <div class="privacy">
       <p class="big">🔒 音声は、iPhoneの外に出ません</p>
-      <h2>プライバシー第一の設計</h2>
-      <p>文字起こしはすべて端末の中で行われ、録音データがクラウドへアップロードされることはありません。当社はサーバーを持たず、アナリティクスも広告SDKも使っていません。社外秘の会議も、デリケートな相談も、安心して記録できます。</p>
+      <h2>機密性が求められる現場のための設計</h2>
+      <p>録音から文字起こし・話者分離まで、すべてアプリの中（端末内）で完結します。クラウド型の文字起こしサービスと違って音声データがアップロードされないので、社外秘の会議・人事や法務の相談・公開前の取材音源も、外部に預けずに記録できます。</p>
+      <div class="points">
+        <div class="point"><div class="t">ノーサーバー</div><div class="d">当社サーバーは存在せず、録音・文字起こしが経由する外部サーバーもありません</div></div>
+        <div class="point"><div class="t">ノー解析・ノー広告</div><div class="d">アナリティクスSDK・広告SDKを一切使っていません。開発者に届くデータはゼロです</div></div>
+        <div class="point"><div class="t">機内モードで証明</div><div class="d">電波を完全に切っても録音から文字起こしまで全部動きます。「外に出ていない」ことをその場で確かめられます</div></div>
+      </div>
     </div>
   </div>
 </section>
